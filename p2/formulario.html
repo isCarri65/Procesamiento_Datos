@@ -4,26 +4,37 @@
         <meta charset="utf-8">
         <title>Form</title>
         <style>
-        table{
-
+            table td{
+                width: 300px;
             }
-        tr{
-            padding: 20px;
-        }
+            .idioma_t td{
+                width: 200px;
+            }
+            .col_2{
+                text-align: center;
+            }
+            button{
+                width: 120px;
+                height: 30px;
+                background-color: rgb(111, 111, 237);
+                border: solid 1px #000;
+                border-radius: 5px;
+                color: #fff;
+            }
         </style>
     </head>
     <body>
-        <h1>Formulario Carga de Datos</h1>
+        
         <form action="formulario.html" method="post">
-            
-            <table align="center">
+            <h1>Formulario Carga de Datos</h1>
+            <table>
                 <tr>
                     <td>
                         <label for="apellido">Apellido: </label>
                         <input type="text" id="apellido">
                     </td>
-                    <td>
-                        <label for="nombre">Nombre: </label></label>
+                    <td >
+                        <label for="nombre">Nombre: </label>
                         <input type="text" id="nombre">
                     </td>
                 </tr>
@@ -49,23 +60,59 @@
                 </tr>
 
             </table>
-            
+
             <h3>Idioma que conoces</h3>
-                <input type="checkbox" name="idiomas" value="español">
-                <label for="idiomas">Español</label><br>
 
-                <input type="checkbox" name="idiomas" value="ingles">
-                <label for="idiomas">Inglés</label><br>
+            <table class="idioma_t">
+                <thead>
+                    <th></th><th>Nivel de conocimiento</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="idiomas" value="español">
+                            <label for="idiomas">Español</label><br>
+                        </td>
+                        <td style="font-size: 10px;" class="col_2">
+                            <label for="español_range">1----------------50----------------100</label><br>
+                            <input type="range" id="español_range" step="10">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="idiomas" value="ingles">
+                            <label for="idiomas">Inglés</label><br>
+                        </td>
+                        <td style="font-size: 10px;" class="col_2">
+                            <label for="ingles_range">1----------------50----------------100</label><br>
+                            <input type="range" id="ingles_range" step="10">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="idiomas" value="frances">
+                            <label for="idiomas">Francés</label><br>
+                        </td>
+                        <td style="font-size: 10px;" class="col_2">
+                            <label for="frances_range">1----------------50----------------100</label><br>
+                            <input type="range" id="frances_range" step="10">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="idiomas" value="chino">
+                            <label for="idiomas">Chino</label><br>
+                        </td>
+                        <td style="font-size: 10px;" class="col_2">
+                            <label for="chino_range">1----------------50----------------100</label><br>
+                            <input type="range" id="chino_range" step="10">
+                        </td>
+                    </tr>
+                </tbody>
 
-                <input type="checkbox" name="idiomas" value="frances">
-                <label for="idiomas">Francés</label><br>
-
-                <input type="checkbox" name="idiomas" value="chino">
-                <label for="idiomas">Chino</label><br>
+            </table>
+                
         
-        
-          
-
             <button type="submit">Enviar</button>
             <button type="reset">Reset</button>
 
