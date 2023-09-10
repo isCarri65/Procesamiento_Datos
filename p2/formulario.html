@@ -3,6 +3,42 @@
     <head>
         <meta charset="utf-8">
         <title>Form</title>
+        <script>
+            function mostrarDatos(){
+                vnombre = document.getElementById("nombre").value;
+                vapellido = document.getElementById("apellido").value;
+                vnum = document.getElementById("dni_number").value;
+                vfecha = document.getElementById("fecha_nacimiento").value;
+                vlocal = document.getElementById("localidad").value;
+                vdom = document.getElementById("domicilio").value;
+                vrango_es =  document.getElementById("español_range").value;
+                vrango_en =  document.getElementById("ingles_range").value;
+                vrango_fr =  document.getElementById("frances_range").value;
+                vrango_ch =  document.getElementById("chino_range").value;
+                idioma_v = document.miform.idiomas;
+                var cant_idiomas = "";
+                rango = [vrango_es, vrango_en, vrango_fr, vrango_ch];
+                for (let i = 0; i < idioma_v.length; i++) {
+                    if (idioma_v[i].checked==true) {
+                        cant_idiomas += idioma_v[i].value + ", ";
+                    }
+                    
+                }
+                document.write("Los datos ingresados fueron: <br/>");
+                document.write("Apellido: "+vapellido+"<br/>");
+                document.write("Nombre: "+vnombre+"<br/>");
+                document.write("Número: "+vnum+"<br/>");
+                document.write("Fecha de nacimiento: "+vfecha+"<br/>");
+                document.write("Localidad: "+vlocal+"<br/>");
+                document.write("Domicilio: "+vdom+"<br/>");
+                document.write("Idiomas que conoces: "+ cant_idiomas + "<br\>");
+                for (let j = 0; j < 4; j++) {
+                    if (idioma_v[j].checked==true) {
+                        document.write("> "+idioma_v[j].value+"<br\>Nivel de conocimiento: "+ rango[j]+"<br\><br\>");
+                    }
+                }
+            }
+        </script>
         <style>
             table td{
                 width: 300px;
@@ -22,10 +58,11 @@
                 color: #fff;
             }
         </style>
+        
     </head>
     <body>
         
-        <form action="formulario.html" method="post">
+        <form name="miform" action="" method="post">
             <h1>Formulario Carga de Datos</h1>
             <table>
                 <tr>
@@ -70,42 +107,42 @@
                 <tbody>
                     <tr>
                         <td>
-                            <input type="checkbox" name="idiomas" value="español">
-                            <label for="idiomas">Español</label><br>
+                            <input type="checkbox" name="idiomas" value="español" id="box1">
+                            <label for="box1">Español</label><br>
                         </td>
                         <td style="font-size: 10px;" class="col_2">
-                            <label for="español_range">1----------------50----------------100</label><br>
-                            <input type="range" id="español_range" step="10">
+                            <label for="español_range">0----------------50----------------100</label><br>
+                            <input type="range" id="español_range" step="10" value="0">
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <input type="checkbox" name="idiomas" value="ingles">
-                            <label for="idiomas">Inglés</label><br>
+                            <input type="checkbox" name="idiomas" value="ingles" id="box2">
+                            <label for="box2">Inglés</label><br>
                         </td>
                         <td style="font-size: 10px;" class="col_2">
-                            <label for="ingles_range">1----------------50----------------100</label><br>
-                            <input type="range" id="ingles_range" step="10">
+                            <label for="ingles_range">0----------------50----------------100</label><br>
+                            <input type="range" id="ingles_range" step="10" value="0">
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <input type="checkbox" name="idiomas" value="frances">
-                            <label for="idiomas">Francés</label><br>
+                            <input type="checkbox" name="idiomas" value="frances" id="box3">
+                            <label for="box3">Francés</label><br>
                         </td>
                         <td style="font-size: 10px;" class="col_2">
-                            <label for="frances_range">1----------------50----------------100</label><br>
-                            <input type="range" id="frances_range" step="10">
+                            <label for="frances_range">0----------------50----------------100</label><br>
+                            <input type="range" id="frances_range" step="10" value="0">
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <input type="checkbox" name="idiomas" value="chino">
-                            <label for="idiomas">Chino</label><br>
+                            <input type="checkbox" name="idiomas" value="chino" id="box4">
+                            <label for="box4">Chino</label><br>
                         </td>
                         <td style="font-size: 10px;" class="col_2">
-                            <label for="chino_range">1----------------50----------------100</label><br>
-                            <input type="range" id="chino_range" step="10">
+                            <label for="chino_range">0----------------50----------------100</label><br>
+                            <input type="range" id="chino_range" step="10" value="0">
                         </td>
                     </tr>
                 </tbody>
@@ -113,8 +150,8 @@
             </table>
                 
         
-            <button type="submit">Enviar</button>
-            <button type="reset">Reset</button>
+            <button type="submit" onclick="mostrarDatos()">Enviar</button>
+            <button type="reset">Borrar</button>
 
         </form>
     </body>
